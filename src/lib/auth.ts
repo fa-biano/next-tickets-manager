@@ -11,15 +11,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     })
   ],
-  callbacks: {
-    async session({ session, user }) {
-      session.user = { ...session.user, id: user.id } as {
-        id: string
-        name: string
-        email: string
-      }
+  secret: process.env.NEXTAUTH_SECRET,
+  // callbacks: {
+  //   // next-auth version 5 already has session.user with id, name and email
+  //   async session({ session, user }) {
+  //     session.user = { ...session.user, id: user.id } as {
+  //       id: string
+  //       name: string
+  //       email: string
+  //     }
 
-      return session
-    }
-  }
+  //     return session
+  //   }
+  // }
 })

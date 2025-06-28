@@ -1,4 +1,4 @@
-import { Container } from '../container'
+import { Container } from '@/components/container'
 import Link from 'next/link'
 
 export default function DashBoardHeader () {

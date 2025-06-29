@@ -1,14 +1,15 @@
 'use client'
 
 import { RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { FormData } from '@/components/dashboard/customer/form'
 
 interface InputProps {
   type: string
   placeholder: string
-  name: string
-  register: UseFormRegister<any>
+  name: keyof FormData
+  register: UseFormRegister<FormData>
   error?: string
-  rules?: RegisterOptions
+  rules?: RegisterOptions<FormData>
 }
 
 export default function Input({ name, placeholder, type, register, rules, error }: InputProps) {
